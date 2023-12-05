@@ -80,15 +80,17 @@ class MainActivity : AppCompatActivity() {
             createNotificationChannel()
             createSelfNoti()
         }
+
+        findViewById<Button>(R.id.btn9).setOnClickListener {
+            startActivity(Intent(this, TestActivity::class.java))
+        }
     }
 
     @SuppressLint("RemoteViewLayout")
     private fun createSelfNoti() {
 
         val notificationLayout = RemoteViews(packageName, R.layout.notification_small)
-        val notificationLayoutExpanded = RemoteViews(packageName, R.layout.notification_large)
 
-// 通知管理
         var notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         // 获取通知栏的Builder
         val builder = NotificationCompat.Builder(context)
